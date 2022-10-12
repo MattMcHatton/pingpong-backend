@@ -19,6 +19,14 @@ app.route("/myendpoint").get((req, res) => {
   res.send({ name: "Matt", phone: "555-555-5555" });
 });
 
-app.listen(8000, () => {
+//set server as a variable and export for tests
+let server = app.listen(8000, () => {
   console.log("Running on 8000");
 });
+
+//function to stop after tests run
+function stop() {
+  server.close();
+}
+
+export default server;
