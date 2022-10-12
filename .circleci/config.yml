@@ -18,6 +18,9 @@ jobs:
           name: "Install Dependencies"
           command: "npm install"
       - run:
+          name: "Start server and compile TS"
+          command: "yarn dev"
+      - run:
           name: "Run Tests"
           command: "yarn test"
 
