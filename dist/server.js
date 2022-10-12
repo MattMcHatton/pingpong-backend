@@ -14,8 +14,11 @@ app.route("/myendpoint").get((req, res) => {
     res.status(200);
     res.send({ name: "Matt", phone: "555-555-5555" });
 });
-app.listen(8000, () => {
+let server = app.listen(8000, () => {
     console.log("Running on 8000");
 });
-export default app;
+function stop() {
+    server.close();
+}
+export default server;
 //# sourceMappingURL=server.js.map
