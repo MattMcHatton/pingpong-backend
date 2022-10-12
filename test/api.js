@@ -12,7 +12,7 @@ describe("Base API route", () => {
              chai.request(app)
                  .get('/')
                  .end((err, res) => {
-                     res.should.have.status(201);
+                     res.should.have.status(200);
                      done();
                   });
          });
