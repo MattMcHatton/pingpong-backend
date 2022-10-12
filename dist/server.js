@@ -17,4 +17,5 @@ app.route("/myendpoint").get((req, res) => {
 app.listen(8000, () => {
     console.log("Running on 8000");
 });
+export default app;
 //# sourceMappingURL=server.js.map
