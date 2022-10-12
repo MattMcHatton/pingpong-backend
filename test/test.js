@@ -1,5 +1,5 @@
 import assert from 'assert'
-import adding from '../dist/utils/counterUtil'
+import adding from '../dist/utils/counterUtil.js'
 
 describe('Array', function () {
   describe('#indexOf()', function () {
