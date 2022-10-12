@@ -8,7 +8,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.route("/").get((req, res) => {
     res.status(200);
-    res.send("Hello World");
+    res.send("Hello World!!");
 });
 app.route("/myendpoint").get((req, res) => {
     res.status(200);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "dev": "tsc ; nodemon -x ts-node dist/server.js"
   },
   "repository": {
@@ -25,6 +25,8 @@
     "typescript": "^4.8.3"
   },
   "devDependencies": {
-    "@types/node": "^18.7.17"
+    "@types/node": "^18.7.17",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
   }
 }
