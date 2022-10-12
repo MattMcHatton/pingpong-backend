@@ -20,5 +20,21 @@ describe("Base API route", () => {
                      done();
                   });
          });
+         it("should return an object", (done) => {
+            chai.request(server)
+                .get('/')
+                .end((err, res) => {
+                    res.should.be.an('object');
+                    done();
+                 });
+        });
+         it("should return Hello World!!", (done) => {
+            chai.request(server)
+                .get('/')
+                .end((err, res) => {
+                    res.text.should.equal('Hello World!!');
+                    done();
+                 });
+        });
     });
 });
