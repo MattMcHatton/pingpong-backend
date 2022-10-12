@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha",
+    "test": "tsc; mocha",
     "dev": "tsc ; nodemon -x ts-node dist/server.js"
   },
   "repository": {
