@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+import user from "./routes/user.js";
+import match from "./routes/match.js";
+import root from "./routes/root.js";
 
 const app = express();
 var corsOptions = {
@@ -9,19 +12,9 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.route("/").get((req, res) => {
-  res.status(200);
-  res.send("Hello World!!");
-});
-
-app.route("/health").get((req, res) => {
-  res.sendStatus(200);
-});
-
-app.route("/myendpoint").get((req, res) => {
-  res.status(200);
-  res.send({ name: "Matt", phone: "555-555-5555" });
-});
+app.use("/", root);
+app.use("/user", user);
+app.use("/match", match);
 
 //set server as a variable and export for tests
 let server = app.listen(8000, () => {

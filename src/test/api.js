@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import { after } from 'mocha';
-import server from '../dist/server.js';
+import server from '../../dist/server.js';
 
 // Configure chai
 chai.use(chaiHttp);
