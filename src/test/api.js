@@ -1,0 +1,96 @@
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import { after } from 'mocha';
+import server from '../../dist/server.js';
+
+// Configure chai
+chai.use(chaiHttp);
+chai.should();
+
+describe("API routes", () => {
+    after(async () => {
+        server.close();
+      });
+
+    describe("Healthcheck", () => {
+        it("should return a 200 response", (done) => {
+             chai.request(server)
+                 .get('/health')
+                 .end((err, res) => {
+                     res.should.have.status(200);
+                     done();
+                  });
+         });
+    });
+
+    describe("GET /", () => {
+        it("should return a 200 response", (done) => {
+             chai.request(server)
+                 .get('/')
+                 .end((err, res) => {
+                     res.should.have.status(200);
+                     done();
+                  });
+         });
+         it("should return an object", (done) => {
+            chai.request(server)
+                .get('/')
+                .end((err, res) => {
+                    res.should.be.an('object');
+                    done();
+                 });
+        });
+         it("should return 'Hello World!!'", (done) => {
+            chai.request(server)
+                .get('/')
+                .end((err, res) => {
+                    res.text.should.equal('Hello World!!');
+                    done();
+                 });
+        });
+    });
+
+    describe("GET /match", () => {
+        after(async () => {
+            server.close();
+          });
+        it("should return a 200 response", (done) => {
+             chai.request(server)
+                 .get('/match')
+                 .end((err, res) => {
+                     res.should.have.status(200);
+                     done();
+                  });
+         });
+         it("should return 'Match endpoint'", (done) => {
+            chai.request(server)
+                .get('/match')
+                .end((err, res) => {
+                    res.text.should.equal('Match endpoint');
+                    done();
+                 });
+        });
+    });
+
+    describe("GET /user", () => {
+        after(async () => {
+            server.close();
+          });
+        it("should return a 200 response", (done) => {
+             chai.request(server)
+                 .get('/user')
+                 .end((err, res) => {
+                     res.should.have.status(200);
+                     done();
+                  });
+         });
+         it("should return 'User endpoint'", (done) => {
+            chai.request(server)
+                .get('/user')
+                .end((err, res) => {
+                    res.text.should.equal('User endpoint');
+                    done();
+                 });
+        });
+    });
+});
