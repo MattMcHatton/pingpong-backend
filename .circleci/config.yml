@@ -19,7 +19,7 @@ jobs:
           command: "npm install"
       - run:
           name: "Prisma Generate"
-          command: "yarn prisma generate"
+          command: "yarn prisma generate --schema=./src/prisma/schema.prisma"
       - run:
           name: "Run Tests"
           command: "yarn test src/test"
