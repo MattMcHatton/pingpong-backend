@@ -11,7 +11,21 @@ datasource db {
 }
 
 model User {
-  id    String  @id @default(uuid())
-  email String  @unique
-  name  String?
+  id           String    @id @default(uuid())
+  email        String    @unique
+  name         String
+  updated_at   String
+  created_at   String
+  home_matches Matches[] @relation("homeUserToMatch")
+  away_matches Matches[] @relation("awayUserToMatch")
+}
+
+model Matches {
+  id           String @id @default(uuid())
+  home_user_id User   @relation(name: "homeUserToMatch", fields: [user_id], references: [id], map: "home_match_fk")
+  away_user_id User   @relation(name: "awayUserToMatch", fields: [user_id], references: [id], map: "away_match_fk")
+  home_score   Int
+  away_score   Int
+  date         String
+  user_id      String
 }
