@@ -18,6 +18,9 @@ jobs:
           name: "Install Dependencies"
           command: "npm install"
       - run:
+      name: "Prisma Generate"
+      command: "yarn prisma generate"
+      - run:
           name: "Run Tests"
           command: "yarn test src/test"
 

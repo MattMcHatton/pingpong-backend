@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "tsc; prisma generate; mocha",
+    "test": "tsc; mocha",
     "dev": "tsc ; nodemon -x ts-node dist/server.js"
   },
   "repository": {
