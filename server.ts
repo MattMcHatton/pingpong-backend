@@ -14,6 +14,10 @@ app.route("/").get((req, res) => {
   res.send("Hello World!!");
 });
 
+app.route("/health").get((req, res) => {
+  res.sendStatus(200);
+});
+
 app.route("/myendpoint").get((req, res) => {
   res.status(200);
   res.send({ name: "Matt", phone: "555-555-5555" });
