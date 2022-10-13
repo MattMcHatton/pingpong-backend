@@ -50,47 +50,47 @@ describe("API routes", () => {
         });
     });
 
-    describe("GET /match", () => {
-        after(async () => {
-            server.close();
-          });
-        it("should return a 200 response", (done) => {
-             chai.request(server)
-                 .get('/match')
-                 .end((err, res) => {
-                     res.should.have.status(200);
-                     done();
-                  });
-         });
-         it("should return an object", (done) => {
-            chai.request(server)
-                .get('/match')
-                .end((err, res) => {
-                    res.should.be.an('object');
-                    done();
-                 });
-        });
-    });
+    // describe("GET /match", () => {
+    //     after(async () => {
+    //         server.close();
+    //       });
+    //     it("should return a 200 response", (done) => {
+    //          chai.request(server)
+    //              .get('/match')
+    //              .end((err, res) => {
+    //                  res.should.have.status(200);
+    //                  done();
+    //               });
+    //      });
+    //      it("should return an object", (done) => {
+    //         chai.request(server)
+    //             .get('/match')
+    //             .end((err, res) => {
+    //                 res.should.be.an('object');
+    //                 done();
+    //              });
+    //     });
+    // });
 
-    describe("GET /user", () => {
-        after(async () => {
-            server.close();
-          });
-        it("should return a 200 response", (done) => {
-             chai.request(server)
-                 .get('/user')
-                 .end((err, res) => {
-                     res.should.have.status(200);
-                     done();
-                  });
-         });
-         it("should return an object", (done) => {
-            chai.request(server)
-                .get('/user')
-                .end((err, res) => {
-                    res.should.be.an('object');
-                    done();
-                 });
-        });
-    });
+    // describe("GET /user", () => {
+    //     after(async () => {
+    //         server.close();
+    //       });
+    //     it("should return a 200 response", (done) => {
+    //          chai.request(server)
+    //              .get('/user')
+    //              .end((err, res) => {
+    //                  res.should.have.status(200);
+    //                  done();
+    //               });
+    //      });
+    //      it("should return an object", (done) => {
+    //         chai.request(server)
+    //             .get('/user')
+    //             .end((err, res) => {
+    //                 res.should.be.an('object');
+    //                 done();
+    //              });
+    //     });
+    // });
 });
