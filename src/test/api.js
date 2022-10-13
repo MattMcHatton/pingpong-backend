@@ -62,11 +62,11 @@ describe("API routes", () => {
                      done();
                   });
          });
-         it("should return 'Match endpoint'", (done) => {
+         it("should return an object", (done) => {
             chai.request(server)
                 .get('/match')
                 .end((err, res) => {
-                    res.text.should.equal('Match endpoint');
+                    res.should.be.an('object');
                     done();
                  });
         });
@@ -84,11 +84,11 @@ describe("API routes", () => {
                      done();
                   });
          });
-         it("should return 'User endpoint'", (done) => {
+         it("should return an object", (done) => {
             chai.request(server)
                 .get('/user')
                 .end((err, res) => {
-                    res.text.should.equal('User endpoint');
+                    res.should.be.an('object');
                     done();
                  });
         });
