@@ -1,10 +1,13 @@
 import express from "express";
+import { matchController } from "../controller/match.js";
 
 const match = express.Router();
+const controller = new matchController();
 
-match.get("/", (req, res) => {
+match.get("/", async (req, res) => {
+  let response = await controller.getAllMatches(req, res);
   res.status(200);
-  res.send("Match endpoint");
+  res.send(response);
 });
 
 export default match;
