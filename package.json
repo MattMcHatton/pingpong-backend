@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "tsc; mocha",
+    "test": "tsc; mocha src/test",
     "dev": "tsc ; nodemon -x ts-node dist/server.js"
   },
   "repository": {
