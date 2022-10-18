@@ -5,9 +5,6 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
-    steps:
-      - run: echo $DATABASE_URL
   run-tests:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -19,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Environmental Variable"
-          command: echo ${DATABASE_URL}
+          command: echo $DATABASE_URL
       - run:
           name: "Install Dependencies"
           command: "npm install"
@@ -35,7 +32,6 @@ jobs:
 workflows:
   run-tests-workflow:
     jobs:
-      - build:
+      - run-tests
           context:
             - Dev
-      - run-tests
