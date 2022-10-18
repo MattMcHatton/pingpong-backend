@@ -50,10 +50,7 @@ describe("API routes", () => {
         });
     });
 
-    describe("GET /match", async () => {
-        after(async () => {
-            server.close();
-          });
+    describe("GET /match", () => {
         it("should return a 200 response", (done) => {
              chai.request(server)
                  .get('/match')
@@ -72,10 +69,7 @@ describe("API routes", () => {
         });
     });
 
-    describe("GET /user", async () => {
-        after(async () => {
-            server.close();
-          });
+    describe("GET /user", () => {
         it("should return a 200 response", (done) => {
              chai.request(server)
                  .get('/user')
