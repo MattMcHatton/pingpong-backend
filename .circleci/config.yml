@@ -15,6 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
+          context: Dev
           name: "Environmental Variable"
           command: echo ${DATABASE_URL}
       - run:
@@ -33,4 +34,3 @@ workflows:
   run-tests-workflow:
     jobs:
       - run-tests
-          context: Dev
