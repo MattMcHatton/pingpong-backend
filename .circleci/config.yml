@@ -32,6 +32,7 @@ jobs:
 workflows:
   run-tests-workflow:
     jobs:
-      - run-tests
-          context: 
+      - build:
+          context:
             - Dev
+      - run-tests
