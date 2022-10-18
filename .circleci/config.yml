@@ -15,9 +15,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Environmental Variable"
-          command: echo $DATABASE_URL
-      - run:
           name: "Install Dependencies"
           command: "npm install"
       - run:
