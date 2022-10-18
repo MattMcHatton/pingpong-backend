@@ -50,7 +50,7 @@ describe("API routes", () => {
         });
     });
 
-    describe("GET /match", () => {
+    describe("GET /match", async () => {
         after(async () => {
             server.close();
           });
@@ -72,7 +72,7 @@ describe("API routes", () => {
         });
     });
 
-    describe("GET /user", () => {
+    describe("GET /user", async () => {
         after(async () => {
             server.close();
           });
