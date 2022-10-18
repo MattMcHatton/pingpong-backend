@@ -5,6 +5,7 @@ const user = express.Router();
 const controller = new userController();
 
 user.get("/", async (req, res) => {
+  console.log("here");
   let response = await controller.getAllUsers(req, res);
   res.status(200);
   res.send(response);
