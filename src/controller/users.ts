@@ -1,4 +1,5 @@
 import prisma from "../prisma/client.js";
+import moment from "moment";
 import { Request, Response } from "express";
 
 export class userController {
@@ -48,5 +49,26 @@ export class userController {
       },
     });
     return match;
+  }
+
+  async createUser(req: Request, res: Response) {
+    const user = await prisma.user.create({
+      data: {
+        name: req.body.name,
+        email: req.body.email,
+        created_at: moment().format("M/D/YYYY HH:mm:ss").toString(),
+        updated_at: moment().format("M/D/YYYY HH:mm:ss").toString(),
+      },
+    });
+    return user;
+  }
+
+  async deleteUser(req: Request, res: Response) {
+    const user = await prisma.user.delete({
+      where: {
+        id: req.body.id,
+      },
+    });
+    return user;
   }
 }
