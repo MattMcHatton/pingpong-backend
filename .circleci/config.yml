@@ -17,6 +17,9 @@ jobs:
       - run:
           name: "Install Dependencies"
           command: "npm install"
+        - run:
+          name: "Compile"
+          command: "tsc"
       - run:
           name: "Prisma Generate"
           command: "yarn prisma migrate reset --schema=./src/prisma/schema.prisma --force"
