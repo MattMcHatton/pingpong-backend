@@ -19,10 +19,7 @@ jobs:
           command: "npm install"
       - run:
           name: "Prisma Generate"
-          command: "yarn prisma generate --schema=./src/prisma/schema.prisma"
-      - run:
-          name: "Prep DB"
-          command: yarn prisma db pull --schema=./src/prisma/schema.prisma
+          command: "yarn prisma migrate reset --schema=./src/prisma/schema.prisma"
       - run:
           name: "Run Tests"
           command: "yarn test src/test"
