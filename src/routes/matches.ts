@@ -10,4 +10,10 @@ match.get("/", async (req, res) => {
   res.send(response);
 });
 
+match.get("/:id", async (req, res) => {
+  let response = await controller.getMatch(req, res);
+  res.status(200);
+  res.send(response);
+});
+
 export default match;

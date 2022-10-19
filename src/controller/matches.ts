@@ -1,9 +1,18 @@
 import prisma from "../prisma/client.js";
-import { ClientRequest, ServerResponse } from "http";
+import { Request, Response } from "express";
 
 export class matchController {
-  async getAllMatches(req: ClientRequest, res: ServerResponse) {
+  async getAllMatches(req: Request, res: Response) {
     const matches = await prisma.matches.findMany();
+    return matches;
+  }
+
+  async getMatch(req: Request, res: Response) {
+    const matches = await prisma.matches.findUnique({
+      where: {
+        id: req.params.id,
+      },
+    });
     return matches;
   }
 }
