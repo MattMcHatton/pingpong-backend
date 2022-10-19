@@ -18,8 +18,14 @@ jobs:
           name: "Install Dependencies"
           command: "npm install"
       - run:
+          name: "Install Typescript"
+          command: "npm install -g typescript"
+      - run:
+          name: "Compile"
+          command: "tsc"
+      - run:
           name: "Prisma Generate"
-          command: "yarn prisma generate --schema=./src/prisma/schema.prisma"
+          command: "yarn prisma migrate reset --schema=./src/prisma/schema.prisma --force"
       - run:
           name: "Run Tests"
           command: "yarn test src/test"

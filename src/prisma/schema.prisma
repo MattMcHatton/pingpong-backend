@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,18 +11,19 @@ model User {
   id           String    @id @default(uuid())
   email        String    @unique
   name         String
-  updated_at   String
   created_at   String
-  home_matches Matches[] @relation("homeUserToMatch")
+  updated_at   String
   away_matches Matches[] @relation("awayUserToMatch")
+  home_matches Matches[] @relation("homeUserToMatch")
 }
 
 model Matches {
   id           String @id @default(uuid())
-  home_user_id User   @relation(name: "homeUserToMatch", fields: [user_id], references: [id], map: "home_match_fk")
-  away_user_id User   @relation(name: "awayUserToMatch", fields: [user_id], references: [id], map: "away_match_fk")
   home_score   Int
   away_score   Int
   date         String
-  user_id      String
+  away_user_id String
+  home_user_id String
+  away_user    User   @relation("awayUserToMatch", fields: [away_user_id], references: [id], map: "away_match_fk")
+  home_user    User   @relation("homeUserToMatch", fields: [home_user_id], references: [id], map: "home_match_fk")
 }
