@@ -18,6 +18,9 @@ jobs:
           name: "Install Dependencies"
           command: "npm install"
       - run:
+          name: "Install Typescript"
+          command: "npm install -g typescript"
+      - run:
           name: "Compile"
           command: "tsc"
       - run:
