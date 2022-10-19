@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import user from "./routes/user.js";
-import match from "./routes/match.js";
+import user from "./routes/users.js";
+import match from "./routes/matches.js";
 import root from "./routes/root.js";
 
 const app = express();
@@ -13,8 +13,8 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 app.use("/", root);
-app.use("/user", user);
-app.use("/match", match);
+app.use("/users", user);
+app.use("/matches", match);
 
 //set server as a variable and export for tests
 let server = app.listen(8000, () => {
