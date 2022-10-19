@@ -54,7 +54,7 @@ describe("API routes", () => {
 
 
     describe("Matches Endpoint", () => {
-        describe("GET /match", () => {
+        describe("GET /matches", () => {
             it("should return a 200 response", (done) => {
                  chai.request(server)
                      .get('/matches')
@@ -129,7 +129,7 @@ describe("API routes", () => {
                      });
             });
         });
-        describe("GET /users/:id/matches/:match-id", () => {
+        describe("GET /users/:id/matches/:match_id", () => {
             it("should return a 200 response", (done) => {
                  chai.request(server)
                      .get('/users/1234/matches/12345')
