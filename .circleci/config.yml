@@ -19,7 +19,7 @@ jobs:
           command: "npm install"
       - run:
           name: "Prisma Generate"
-          command: "yarn prisma migrate reset --schema=./src/prisma/schema.prisma"
+          command: "yarn prisma migrate reset --schema=./src/prisma/schema.prisma --force"
       - run:
           name: "Run Tests"
           command: "yarn test src/test"
