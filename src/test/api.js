@@ -10,6 +10,7 @@ chai.use(chaiSubset);
 chai.should();
 
 describe("API routes", () => {
+
     after(async () => {
         server.close();
       });
@@ -56,46 +57,6 @@ describe("API routes", () => {
         });
     });
 
-
-    describe("Matches Endpoint", () => {
-        describe("GET /matches", () => {
-            it("should return a 200 response", (done) => {
-                 chai.request(server)
-                     .get('/matches')
-                     .end((err, res) => {
-                         res.should.have.status(200);
-                         done();
-                      });
-             });
-             it("should return an object", (done) => {
-                chai.request(server)
-                    .get('/matches')
-                    .end((err, res) => {
-                        res.should.be.an('object');
-                        done();
-                     });
-            });
-        });
-        describe("GET /matches/:id", () => {
-            it("should return a 200 response", (done) => {
-                 chai.request(server)
-                     .get('/matches/12345')
-                     .end((err, res) => {
-                         res.should.have.status(200);
-                         done();
-                      });
-             });
-             it("should return an object", (done) => {
-                chai.request(server)
-                    .get('/matches')
-                    .end((err, res) => {
-                        res.should.be.an('object');
-                        done();
-                     });
-            });
-        });
-    });
-
     describe("Users Endpoints", () => {
         let test_id = ''
         describe("POST /users", () => {
@@ -104,8 +65,8 @@ describe("API routes", () => {
                      .post('/users')
                      .set('content-type', 'application/json')
                      .send({name: 'test name', email: 'test@test.com'})
-                     .end((err, res) => {
-                         res.should.have.status(201);
+                     .end((err, res) => { 
+                        res.should.have.status(201);
                          res.body.should.have.property('id')
                          res.body.should.have.property('created_at')
                          res.body.should.have.property('updated_at')
@@ -203,4 +164,45 @@ describe("API routes", () => {
              });   
         });
     });
+
+    describe("Matches Endpoint", () => {
+        describe("GET /matches", () => {
+            it("should return a 200 response", (done) => {
+                 chai.request(server)
+                     .get('/matches')
+                     .end((err, res) => {
+                         res.should.have.status(200);
+                         done();
+                      });
+             });
+             it("should return an object", (done) => {
+                chai.request(server)
+                    .get('/matches')
+                    .end((err, res) => {
+                        res.should.be.an('object');
+                        done();
+                     });
+            });
+        });
+        describe("GET /matches/:id", () => {
+            it("should return a 200 response", (done) => {
+                 chai.request(server)
+                     .get('/matches/12345')
+                     .end((err, res) => {
+                         res.should.have.status(200);
+                         done();
+                      });
+             });
+             it("should return an object", (done) => {
+                chai.request(server)
+                    .get('/matches')
+                    .end((err, res) => {
+                        res.should.be.an('object');
+                        done();
+                     });
+            });
+        });
+    });
+
+    
 });
